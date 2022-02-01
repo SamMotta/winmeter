@@ -9,7 +9,7 @@ class Partida {
 
         this.roundsWon = 0
         this.roundsLost = 0
-        // trocar victories e defeats por rodadas ganhas e perdidas?
+        // trocar victories e defeats por rodadas ganhas e perdidas? SIM!
         this.date = `${date.getDate()}/${mesesExtenso[date.getMonth()]}/${date.getFullYear()}`
         this.time = `${date.getHours()}:${date.getMinutes()}`
         // Data e hora tem que ser gerado no servidor na hora, para pegar a hora exata que foi enviada e
@@ -54,29 +54,7 @@ const bParty = document.querySelector('.bParty')
 bVic.innerHTML = `${logic.roundsWon}`
 bDef.innerHTML = `${logic.roundsLost}`
 
-// Refatorar quase tudo nessa desgraça
-function addVictory_Defeat(value) {
-    if (value === 1) {
-        update(1)
-    } else if (value === 0) {
-        update(0)
-    }
-}
-
-function update(value) {
-    if (value === 1) {
-        logic.addVictory()
-        bVic.innerHTML = `${logic.roundsWon}`
-    }
-
-    if (value === 0) {
-        logic.addDefeat()
-        bDef.innerHTML = `${logic.roundsLost}`
-    }
-
-    bWLR.innerHTML = logic.showWLR()
-}
-
+// Refatorar quase tudo nessa desgraça [Completado eu acho?]
 function addParty() {
     let partyInputValue = document.querySelector('#inputParty').value
     if (partyInputValue === "") {

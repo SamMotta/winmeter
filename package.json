@@ -1,0 +1,15 @@
+{
+  "name": "winmeter",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/SamMotta/winmeter.git",
+  "author": "Samuel Motta",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2"
+  }
+}
