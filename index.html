@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Partidas do dia</title>
+</head>
+<body>
+    <h2>Partidas do dia</h1>
+    <!-- Transformar em uma lista: Usuário/Data/vitorias/derrotas/WinLossRatio/KDR(?)/Party(?)
+    Vitórias divido por Derrotas = WLR
+    Vítimas(Kills) divido por Mortes(Death) = KDR
+    Party = Quem estava jogando contigo
+    -->
+    <table>
+        <tr>
+            <th>Data e Hora</th>
+            <th>Party</th>
+            <th>R. ganhas</th>
+            <th>R. perdidas</th>
+            <th>KDR</th>
+        </tr>
+        <tr>
+            <td class="DATA"></td>
+            <td class="bParty"> - </td>
+            <td class="bVic"></td>
+            <td class="bDef"></td>
+            <td>0.00</td>
+        </tr>
+    </table>
+    <br>
+
+    <h2>Status de hoje</h2>
+    <table>
+        <tr>
+            <th>Taxa de V/D</th>
+            <th>Vitórias</th>
+            <th>Derrotas</th>
+        </tr>
+        <tr>
+            <td class="bWLR">V/D: 0.00</td>
+            <td>V: 0</td>
+            <td>D: 0</td>
+        </tr>
+    </table>
+
+
+    <br/>
+    <br/>
+
+
+
+    
+    <h2>Formulário</h2>
+    
+    
+    <form method="post" autocomplete="off">
+        
+        <input type="number" name="roundsWon" placeholder="Rodadas ganhas">
+        <input type="number" name="lostRounds" placeholder="Rodadas perdidas">
+        
+        
+    </form>
+    
+    
+    <!-- Encapsular tudo em um form /// fazer a data/hora atualizar a cada segundo(a cada 5s?)
+     Ignorar os botões btnVic & btnDef -->
+    <button class="btnVic" onclick="addVictory_Defeat(1)">Adicionar Vitória</button>
+    <button class="btnDef" onclick="addVictory_Defeat(0)">Adicionar Derrota</button><br><br>
+
+    <input type="text" id="inputParty" placeholder="Quem estava no squad">
+    <input type="submit" value="Enviar" onclick="addParty()" onkeydown="search(this)">
+
+    <script src="script.js"></script>
+</body>
+
+</html>
