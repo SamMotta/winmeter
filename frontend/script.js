@@ -1,77 +1,53 @@
-// Gerar um objeto usando class contendo tudo da lista e depois exibir no site (Inútil :(? )
-// Não necessário, já que o <form> já envia um objeto
+const dDate = document.querySelector('.dDate')
+const dParty = document.querySelector('.dParty')
+const dVic = document.querySelector('.dVic')
+const dDef = document.querySelector('.dDef')
+const dWLR = document.querySelector('.dWLR')
 
-const mesesExtenso = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+async function showData(data) {
+    dDate.innerHTML = await data.date
+    dParty.innerHTML = await data.party
+    dVic.innerHTML = await data.roundsWon
+    dDef.innerHTML = await data.lostRounds
 
-class Partida {
-    constructor() {
-        const date = new Date()
+    // criar uma função pra aumentar o tamanho da tabela conforme tiver mais jogos com um limite de 10
+}
 
-        this.roundsWon = 0
-        this.roundsLost = 0
-        // trocar victories e defeats por rodadas ganhas e perdidas? SIM!
-        this.date = `${date.getDate()}/${mesesExtenso[date.getMonth()]}/${date.getFullYear()}`
-        this.time = `${date.getHours()}:${date.getMinutes()}`
-        // Data e hora tem que ser gerado no servidor na hora, para pegar a hora exata que foi enviada e
-        // guardada na database (Sepá criar a data e a hora pelo próprio database)
-        // cada partida com seu próprio UUID
-        // Guardar cada partida dentro da database e gerar o WLR usando algum atributo
-        this.party = []
-    }
 
-    // trocar essas funções por setter e pegar de um input[type="number"]
-    addVictory() {
-        this.roundsWon++
-    }
-
-    addDefeat() {
-        this.roundsLost++
-    }
-
-    addParty(value = "") {
-        let result = value.replaceAll(' ', "").split(',')
-        for (const i of result) {
-            this.party.push(i)
-        }
-    }
-
-    // usar isso na database pro status de hoje
-    showWLR() {
-        if ((this.roundsWon/this.roundsLost) === Infinity)
-            return (this.roundsWon).toFixed(2)
-        return (this.roundsWon/this.roundsLost).toFixed(2)
+async function getAPIContent() {
+    try {
+        const fetchResponse = await fetch('/viewMatches')
+        const data = await fetchResponse.json()
+        // data é pra ser um Array com no máximo 10 objetos
+        console.log(data)
+        
+        return data[0]
+    } catch(err) {
+        throw err
     }
 }
 
-const logic = new Partida()
-
-document.querySelector('.DATA').innerHTML = `${logic.date} <br> ${logic.time}`
-const bVic = document.querySelector('.bVic')
-const bDef = document.querySelector('.bDef')
-const bWLR = document.querySelector('.bWLR')
-const bParty = document.querySelector('.bParty')
-
-bVic.innerHTML = `${logic.roundsWon}`
-bDef.innerHTML = `${logic.roundsLost}`
-
-// Refatorar quase tudo nessa desgraça [Completado eu acho?]
-function addParty() {
-    let partyInputValue = document.querySelector('#inputParty').value
-    if (partyInputValue === "") {
-        return;
-    }
-
-    logic.addParty(partyInputValue)
-
-    let partyBaked = logic.party[0]
-    for (let i = 1; i < logic.party.length; i++) {
-        partyBaked += `, ${logic.party[i]}`
-    }
-
-    bParty.innerHTML = partyBaked
-    document.querySelector('#inputParty').value = ''
-}
-
-document.querySelector('#inputParty').addEventListener('keyup', function(e) {
-    if (e.keyCode == 13 || e.which == 13) addParty();
+getAPIContent()
+.then(data => {
+    showData(data)
 })
+.catch(console.error)
+
+// reaproveitar isto pra inserir corretamente a party
+// inútil? Party -> Samzin, Drozer
+// function addParty() {
+//     let partyInputValue = document.querySelector('#inputParty').value
+//     if (partyInputValue === "") {
+//         return;
+//     }
+
+//     logic.addParty(partyInputValue)
+
+//     let partyBaked = logic.party[0]
+//     for (let i = 1; i < logic.party.length; i++) {
+//         partyBaked += `, ${logic.party[i]}`
+//     }
+
+//     bParty.innerHTML = partyBaked
+//     document.querySelector('#inputParty').value = ''
+// }

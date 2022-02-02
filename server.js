@@ -1,14 +1,24 @@
 const express = require('express')
 const bodyparser = require('body-parser')
-const PORT = process.env.PORT || 5265
+const cors = require('cors')
 
+const database = require('./src/database.js')
+const PORT = process.env.PORT || 5265
 const app = express()
+
+app.use(cors())
 app.use(bodyparser.urlencoded({ extended: true }))
 app.use(express.static(__dirname + '/frontend'))
 
-app.post('/matches', (req, res) => {
-    console.log(req.body)
-    res.send('<h1>Partida criada</h1>')
+app.post('/createMatches', (req, res) => {
+    database.createMatch(req.body)
+    res.redirect('/')
+})
+
+// assíncrono porque precisa esperar o SQL
+app.get('/viewMatches', async (req, res) => {
+    const matchesRAW = await database.showMatches()
+    res.json(matchesRAW)
 })
 
 

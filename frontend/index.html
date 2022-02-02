@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +9,9 @@
 
     <title>Partidas do dia</title>
 </head>
+
 <body>
-    <h2>Partidas do dia</h1>
+    <h1>Partidas do dia</h1>
     <!-- Transformar em uma lista: Usuário/Data/vitorias/derrotas/WinLossRatio/KDR(?)/Party(?)
     Vitórias divido por Derrotas = WLR
     Vítimas(Kills) divido por Mortes(Death) = KDR
@@ -24,10 +26,10 @@
             <th>KDR</th>
         </tr>
         <tr>
-            <td class="DATA"></td>
-            <td class="bParty"> - </td>
-            <td class="bVic"></td>
-            <td class="bDef"></td>
+            <td class="dDate"></td>
+            <td class="dParty"> - </td>
+            <td class="dVic"></td>
+            <td class="dDef"></td>
             <td>0.00</td>
         </tr>
     </table>
@@ -41,36 +43,34 @@
             <th>Derrotas</th>
         </tr>
         <tr>
-            <td class="bWLR">V/D: 0.00</td>
+            <td class="dWLR">V/D: 0.00</td>
             <td>V: 0</td>
             <td>D: 0</td>
         </tr>
     </table>
+    <br />
+    <br />
 
-
-    <br/>
-    <br/>
-
-
-
-    
     <h2>Formulário</h2>
-    
-    
+
     <form method="post" autocomplete="off">
-        
-        <input type="number" name="roundsWon" placeholder="Rodadas ganhas">
-        <input type="number" name="lostRounds" placeholder="Rodadas perdidas">
-        
-        
+        <label>Tamanho da partida</label><br />
+        <input type="radio" name="matchLength" value="long"><label>Longa</label>
+        <input type="radio" name="matchLength" value="short"><label>Curta</label><br />
+
+
+        <label>Rodadas ganhas | Rodadas perdidas</label><br>
+        <input type="number" name="roundsWon">
+        <input type="number" name="lostRounds"><br />
+
+        <label>Digite os nomes das pessoas que estavam no squad</label>
+        <input type="text" name="party" placeholder="Quem estava no squad">
+
+        <input type="submit" value="Enviar" formaction="/createMatches">
     </form>
-    
-    
+
     <!-- Encapsular tudo em um form /// fazer a data/hora atualizar a cada segundo(a cada 5s?)
      Ignorar os botões btnVic & btnDef -->
-
-    <input type="text" id="inputParty" placeholder="Quem estava no squad">
-    <input type="submit" value="Enviar" onclick="addParty()" onkeydown="search(this)">
 
     <script src="script.js"></script>
 </body>

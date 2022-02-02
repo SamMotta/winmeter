@@ -12,7 +12,31 @@ th, td {
     text-align: center;
 }
 
+form {
+    padding: 10px;
+    background-color: whitesmoke;
+    max-width: fit-content;
+}
+
 input {
     display: block;
     margin-bottom: 10px;
+}
+
+input[type=number] {
+    margin-top: 3px;
+    display: inline;
+    width: 45px;
+}
+
+input[name=lostRounds] {
+    margin-left: 55px;
+}
+
+input[name=roundsWon] {
+    margin-left: 30px;
+}
+
+input[type=radio] {
+    display: inline;
 }
