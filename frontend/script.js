@@ -1,18 +1,26 @@
-const dDate = document.querySelector('.dDate')
-const dParty = document.querySelector('.dParty')
-const dVic = document.querySelector('.dVic')
-const dDef = document.querySelector('.dDef')
-const dWLR = document.querySelector('.dWLR')
+const dynamicTable = document.querySelector('.dynamicTable')
 
 async function showData(data) {
-    dDate.innerHTML = await data.date
-    dParty.innerHTML = await data.party
-    dVic.innerHTML = await data.roundsWon
-    dDef.innerHTML = await data.lostRounds
+    let dynamicTableResult = `<tr>
+    <th>Data e Hora</th>
+    <th>Party</th>
+    <th>R. ganhas</th>
+    <th>R. perdidas</th>
+    <th>KDR</th>
+</tr>`
 
-    // criar uma função pra aumentar o tamanho da tabela conforme tiver mais jogos com um limite de 10
+    for (const i of data) {
+        dynamicTableResult += `<tr>
+        <td>${i.date}</td>
+        <td>${i.party}</td>
+        <td>${i.roundsWon}</td>
+        <td>${i.lostRounds}</td>
+        <td>:P 0.00</td>
+    </tr>`
+    }
+
+    dynamicTable.innerHTML = dynamicTableResult
 }
-
 
 async function getAPIContent() {
     try {
@@ -21,7 +29,7 @@ async function getAPIContent() {
         // data é pra ser um Array com no máximo 10 objetos
         console.log(data)
         
-        return data[0]
+        return data
     } catch(err) {
         throw err
     }

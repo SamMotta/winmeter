@@ -59,9 +59,11 @@ module.exports = {
         )`)
     },
     showMatches: async () => {
-        // Selecionar apenas as 10 últimas adições a DB
+        // Selecionar apenas as 10 últimas adições a DB [X]
+        // Criar um date e time separados e juntar depois
         try {
-            return await db.all('SELECT * FROM matches')
+            // console.log(await db.all(`SELECT * FROM matches WHERE date="${moment().format('DD/MM/YYYY')}"`))
+            return await db.all('SELECT * FROM matches ORDER BY id DESC LIMIT 10')
         } catch (err) {
             throw err
         }
