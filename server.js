@@ -11,7 +11,10 @@ app.use(bodyparser.urlencoded({ extended: true }))
 app.use(express.static(__dirname + '/frontend'))
 
 app.post('/createMatches', (req, res) => {
-    database.createMatch(req.body)
+    database.validateMatch(req.body)
+    // if (isValid === undefined) res.redirect(400, '/')
+    // gerar uma página pra dizer se foi válido?
+    
     res.redirect('/')
 })
 
@@ -21,9 +24,6 @@ app.get('/viewMatches', async (req, res) => {
     res.json(matchesRAW)
 })
 
-
 app.listen(PORT, () => {
     console.log('http://localhost:' + PORT )
 })
-
-console.log(__dirname)
