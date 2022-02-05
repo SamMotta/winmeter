@@ -12,11 +12,6 @@
 
 <body>
     <h1>Partidas do dia</h1>
-    <!-- Transformar em uma lista: Usuário/Data/vitorias/derrotas/WinLossRatio/KDR(?)/Party(?)
-    Vitórias divido por Derrotas = WLR
-    Vítimas(Kills) divido por Mortes(Death) = KDR
-    Party = Quem estava jogando contigo
-    -->
     <table class="dynamicTable">
         <!-- <tr>
             <th>Data e Hora</th>
@@ -55,13 +50,25 @@
 
     <form method="post" autocomplete="off">
         <label>Tamanho da partida</label><br />
-        <input type="radio" name="matchLength" value="long"><label>Longa</label>
-        <input type="radio" name="matchLength" value="short"><label>Curta</label><br />
+        <input type="radio" name="matchLength" value="long" onchange="isShort(0)"><label>Longa</label>
+        <input type="radio" name="matchLength" value="short" onchange="isShort(1)"><label>Curta</label><br />
 
+        <label>Mapa jogado</label><br />
+        <select name="map">
+            <option value=""> --Selecione um mapa -- </option>
+            <option value="mirage">Mirage</option>
+            <option value="dustII">DustII</option>
+            <option value="inferno">Inferno</option>
+            <option value="overpass">Overpass</option>
+            <option value="vertigo">Vertigo</option>
+            <option value="train">Train</option>
+            <option value="cache">Cache</option>
+            <option value="nuke">Nuke</option>
+        </select><br /><br />
 
         <label>Rodadas ganhas | Rodadas perdidas</label><br>
-        <input type="number" name="roundsWon">
-        <input type="number" name="lostRounds"><br />
+        <input type="number" name="roundsWon" class="roundsWon" min="0" max="16">
+        <input type="number" name="lostRounds" class="lostRounds" min="0" max="16"><br />
 
         <label>Digite os nomes das pessoas que estavam no squad</label>
         <input type="text" name="party" placeholder="Quem estava no squad">

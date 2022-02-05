@@ -6,21 +6,39 @@ async function showData(data) {
     <th>Party</th>
     <th>R. ganhas</th>
     <th>R. perdidas</th>
-    <th>KDR</th>
+    <th>Mapa</th>
 </tr>`
 
     for (const i of data) {
         dynamicTableResult += `<tr>
-        <td>${i.date}</td>
+        <td>${i.date} ${i.time}</td>
         <td>${i.party}</td>
         <td>${i.roundsWon}</td>
         <td>${i.lostRounds}</td>
-        <td>:P 0.00</td>
+        <td>${i.map}</td>
     </tr>`
     }
 
     dynamicTable.innerHTML = dynamicTableResult
 }
+
+// validar se os input estão devidamente preenchidos
+// function validateInput() {}
+
+function isShort(short) {
+    if (short === 1) {
+        document.querySelector('.roundsWon').setAttribute('max', '9')
+        document.querySelector('.lostRounds').setAttribute('max', '9')
+        if (document.querySelector('.lostRounds').value > 9) document.querySelector('.lostRounds').value = ''
+        if (document.querySelector('.roundsWon').value > 9) document.querySelector('.roundsWon').value = ''
+    } else {
+        document.querySelector('.roundsWon').setAttribute('max', '16')
+        document.querySelector('.lostRounds').setAttribute('max', '16')
+        if (document.querySelector('.lostRounds').value > 16) document.querySelector('.lostRounds').value = ''
+        if (document.querySelector('.roundsWon').value > 16) document.querySelector('.roundsWon').value = ''
+    }
+}
+
 
 async function getAPIContent() {
     try {
