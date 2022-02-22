@@ -1,19 +1,19 @@
 # **WinMeter**
 
-Um projeto pessoal pra adquirir um pouco de experiência com SQLite e Express.
+A personal project to acquire some experience with SQLite3 and Express.
 
 ## **Roadmap**
 
-- [ ] Refatorar/Modificar o código para TypeScript
+- [ ] Refactor/Modify the code to TypeScript
 
-- [ ] Usar ReactJS e Sass ao invés de bootstrap e CSS
+- [ ] Use React and Sass(and maybe Bootstrap) instead of Bootstrap and CSS
 
-- [ ] Usar Firebase Realtime ao invés do SQLite3
+- [ ] Maybe use Firebase Realtime Databse instead of SQLite3
 
-- [ ] Usar uma API para capturar as partidas do CSGO* (Existe? Tracker.gg? possível solução [LINK](https://steamcommunity.com/app/730/discussions/0/224446432330039286/)) 
-    - PS: Possívelmente usarei o [GameStateIntegration](https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Game_State_Integration)
-- [ ] Criar um Desktop GUI usando Tauri(ou Electron)
+- [ ] use an API to capture CSGO matches* (Exists? Tracker.gg? possible solution [LINK](https://steamcommunity.com/app/730/discussions/0/224446432330039286/)) 
+    - PS: Probably I'll use CSGO [GameStateIntegration](https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Game_State_Integration)
+- [ ] Create a Desktop GUI utilizing Tauri(Or Electron)
 
-- [ ] Adicionar mais jogos (Rainbow Six: Siege/Extraction, Valorant, League of Legends)
+- [ ] Add more games (Rainbow Six: Siege/Extraction, Valorant, League of Legends)
 
-- [ ] Start using english to write the README.md instead of portuguese? :thinking:
+- [X] Start using english to write the README.md instead of portuguese? :thinking:
