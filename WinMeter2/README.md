@@ -1,6 +1,6 @@
 # **WinMeter**
 
-A personal project to acquire some experience with ViteJS and Express.
+A personal project to acquire some experience with React + ViteJs and Firebase.
 
 -----
 
