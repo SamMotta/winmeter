@@ -1,45 +1,118 @@
+// :root {
+    
+// }
+
+
+
+
 #create-match {
-    h1 {
-        font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: stretch;
+    height: 100vh;
+    
+    aside {
+        flex: 7;
+        
+        background: #835afd;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        
+        padding: 2% 1.8%;
+        
+        h2, h1 {
+            color: #fff;
+            margin-bottom: 4px; 
+        }
+
+        table {
+            max-width: 90%;
+        }
+        
+        /* fazer animação para os Status de hoje 
+        Partidas Recentes <==> Status de Hoje */
+        table, th, td {
+            font: 500 16px "Lato", sans-serif;
+            border: 3px solid #000;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            color: #000000;
+            padding: 3px;
+            text-align: center;
+        }
+
     }
     
-    table, th, td {
-        border: 2px solid black;
-        border-collapse: collapse;
+    main {
+        flex:8;
+        
+        border-left: 2px #000 solid;
+        padding: 0 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    
-    th, td {
-        padding: 3px;
+
+    header {
         text-align: center;
-    }
-    
-    form {
-        padding: 10px;
-        background-color: whitesmoke;
-        max-width: fit-content;
-    }
-    
-    input {
-        display: block;
         margin-bottom: 10px;
     }
-    
-    input[type=number] {
-        margin-top: 3px;
-        display: inline;
-        width: 45px;
+
+    h1.title {
+        font: 500 38px "Roboto", sans-serif;
     }
+      
+    form {
+        // border: 2px solid #000;
+        padding: 16px;
+        // background-color: #fff;
+        max-width: 100%;
     
-    input[name=lostRounds] {
-        margin-left: 55px;
+        > div .inputMatchLength {
+            margin-right: 4px;
+        }
+
+        .inputMarginLeft {
+            margin-left: 10px;
+        }
+
+        input {
+            display: block;
+            margin-bottom: 12px;
+        }
+        
+        input[type=number] {
+            display: inline;
+            min-width: 35px;
+        }
+
+        .roundsWon {
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+        
+        input[value=short] {
+            margin-left: 8px;
+        }
+
+        input[type=radio] {
+            display: inline;
+        }
+
+        input[type=text] {
+            display: inline;
+        }
+
+        button {
+            display: block;
+            padding: 2px;
+        }
     }
+ 
     
-    input[name=roundsWon] {
-        margin-left: 30px;
-    }
-    
-    input[type=radio] {
-        display: inline;
-    }
+
 }
 

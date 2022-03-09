@@ -1,5 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background: linear-gradient(to right, #203A43, #0F2027)
+    background: #f8f8f8;
+    color: #29292e;
 }
 
 body, input, button, textarea {

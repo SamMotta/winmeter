@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { useState, useMemo, FormEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MatchesTable } from "../components/MatchesTable";
 import { useAuth } from "../hooks/useAuth";
@@ -37,8 +37,7 @@ export function CreateMatch() {
             authorId: user?.id
         })
 
-        // Desnecessário, já que o react "Reage"
-        // navigate('/newMatch')
+        navigate('/newMatch')
     }
 
     return (
@@ -50,10 +49,11 @@ export function CreateMatch() {
                 </header>
 
                 <MatchesTable />
-                
+
             </aside>
 
             <main>
+                {/* retirar o método POST e refazer esse form */}
                 <form onSubmit={handleCreateMatch}>
                     <h2>Formulário</h2>
                     {/* <p>Adicione partidas</p> */}<br />
